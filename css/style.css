@@ -1,0 +1,124 @@
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f3ffeb;
+}
+
+header {
+    padding: 10px;
+    background-color: #4aca00;
+    height: 80px;
+}
+
+.title {
+  text-align: center;
+  color: white;
+  font-size: 52px;
+  font-weight: bold;
+}
+
+
+
+
+
+.login {
+    border: none;
+    background-color: inherit;
+    color: white;
+    font-size: 18px;
+    cursor: pointer;
+    
+  }
+
+
+
+.navbar {
+    background-color: #cdffac;
+    overflow: hidden;
+}
+.navbar a {
+    float: left;
+    display: block;
+    color: rgb(17, 139, 5);
+    text-align: center;
+    padding: 14px 20px;
+    text-decoration: none;
+}
+.navbar a:hover {
+    background-color:rgb(17, 139, 5);
+    color: white;
+}
+.menu-toggle {
+    display: none;
+}
+.menu {
+    display: flex;
+}
+@media screen and (max-width: 768px) {
+    .menu {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+    }
+    .menu a {
+        float: none;
+        text-align: left;
+    }
+    .menu-toggle {
+        display: block;
+        float: right;
+        padding: 14px 20px;
+        color: rgb(17, 139, 5);
+        background-color: #cdffac;
+        cursor: pointer;
+    }
+}
+@media screen and (min-width: 769px) {
+    .menu {
+        display: flex;
+    }
+}
+
+.bcimage {
+    background-image: url(https://i0.wp.com/www.muscleandfitness.com/wp-content/uploads/2019/12/Healthy-Happy-Couple-Stretching-Grass.jpg?quality=86&strip=all); /* Imagen de fondo */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 350px;
+    padding: 10px;
+}
+
+.highlight {
+    display: flex;
+    justify-content: center;
+    height: 160px;
+    align-items:end;
+    color: #5af500;
+    font-size: 48px;
+    font-weight: bold;
+    text-shadow: 2px 2px rgba(0, 0, 0, 0.397);
+}
+
+.htext {
+    display: flex;
+    justify-content: center;
+    height: 35px;
+    align-items:end;
+    color: #ffffff;
+    font-size: 18px;
+    text-shadow: 2px 2px rgba(0, 0, 0, 0.397);
+}
+
+img {
+    border-radius: 100%;
+    
+}
+
+.imgflex {
+    display: flex;
+    align-items: start;
+    padding-top: 20px;
+    padding-left: 15%;
+
+}

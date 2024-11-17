@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>USBFIT</title>
+    <link rel="stylesheet" href="../css/style.css">
+
+</head>
+
+<header>
+    <div class="title">
+      USBFIT
+    </div>
+
+    <div class="login">
+        <button class="login">Iniciar sesión</button>
+        <button class="login">Registrarse</button>
+    </div>
+</header>
+<body>
+    <div class="navbar">
+        <div class="menu-toggle">☰</div>
+        <div class="menu">
+            <a href="#home">Inicio</a>
+            <a href="#services">Registro de rutinas</a>
+            <a href="#about">Registro de dietas</a>
+            <a href="#contact">Horario de sueño</a>
+        </div>
+    </div>
+
+    <div class="bcimage">
+        <div class="highlight">EL CAMBIO EMPIEZA AHORA</div>
+        <div class="htext">Descubre los beneficios de una vida saludable</div>
+    </div>
+
+    <div class="imgflex">
+        <img src="https://www.consalud.es/estetic/uploads/s1/24/01/73/4/rutina-fitness-en-12-semanas-foto-freepik.jpeg" width="150px" height="150px">
+        <div>
+            <h2>No te pierdas de vista</h2>
+            <h5>Guarda registro de tus rutinas de ejercicio</h5>
+        </div>
+    </div>
+
+    <script>
+        document.querySelector('.menu-toggle').addEventListener('click', function() {
+            var menu = document.querySelector('.menu');
+            menu.style.display = menu.style.display === 'flex' ? 'none' : 'flex';
+        });
+    </script>
+</body>
+</html>
