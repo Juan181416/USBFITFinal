@@ -8,7 +8,7 @@ body {
 header {
     padding: 10px;
     background-color: #4aca00;
-    height: 80px;
+    height: 100px;
 }
 
 .title {
@@ -23,8 +23,10 @@ header {
 
 
 .login {
+    padding: 10px;
+    border-radius: 10%;
     border: none;
-    background-color: inherit;
+    background-color: #4aca00;
     color: white;
     font-size: 18px;
     cursor: pointer;
@@ -121,6 +123,7 @@ img {
     align-items: start;
     justify-content: center;
     padding-top: 20px;
+    padding-bottom: 50px;
 
 
 }
