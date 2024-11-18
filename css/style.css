@@ -91,6 +91,15 @@ header {
     padding: 10px;
 }
 
+.bcimage2 {
+    background-image: url(https://media.post.rvohealth.io/wp-content/uploads/2020/02/man-exercising-plank-push-up-1200x628-facebook.jpg); /* Imagen de fondo */
+    background-position:center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 350px;
+    padding: 10px;
+}
+
 .highlight {
     display: flex;
     justify-content: center;
