@@ -85,7 +85,6 @@ header {
 }
 
 .bcimage {
-    background-image: url(https://i0.wp.com/www.muscleandfitness.com/wp-content/uploads/2019/12/Healthy-Happy-Couple-Stretching-Grass.jpg?quality=86&strip=all); /* Imagen de fondo */
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -94,7 +93,6 @@ header {
 }
 
 .bcimage2 {
-    background-image: url(https://media.post.rvohealth.io/wp-content/uploads/2020/02/man-exercising-plank-push-up-1200x628-facebook.jpg); /* Imagen de fondo */
     background-position:center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -104,6 +102,7 @@ header {
 
 .highlight {
     display: flex;
+    font-family: Dancing Script;
     justify-content: center;
     height: 160px;
     align-items:end;
