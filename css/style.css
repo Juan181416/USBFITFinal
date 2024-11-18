@@ -102,6 +102,7 @@ header {
 
 .highlight {
     display: flex;
+    font-family: Dancing Script;
     justify-content: center;
     height: 160px;
     align-items:end;
