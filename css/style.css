@@ -18,10 +18,6 @@ header {
   font-weight: bold;
 }
 
-
-
-
-
 .login {
     padding: 10px;
     border-radius: 10%;
@@ -31,7 +27,13 @@ header {
     font-size: 18px;
     cursor: pointer;
     
-  }
+}
+
+.login_box {
+    display: flex; 
+    justify-content: center; 
+    background-color: #4aca00;
+}
 
 
 
