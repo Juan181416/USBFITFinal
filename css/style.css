@@ -117,8 +117,24 @@ img {
 
 .imgflex {
     display: flex;
+    gap:35px;
     align-items: start;
+    justify-content: center;
     padding-top: 20px;
-    padding-left: 15%;
 
+
+}
+
+h1 {
+    color: #338b00;
+}
+h2 {
+    color: #205800;
+}
+
+footer {
+    background-color:#338b00; 
+    color:white;
+    text-align: center;
+    padding: 10px;
 }
