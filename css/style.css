@@ -156,9 +156,48 @@ p{
     text-shadow: 2px 2px rgba(0, 0, 0, 0.397);
 }
 
-img {
+.round_img {
     border-radius: 100%;
-    
+}
+
+.back_button {
+    position: absolute;
+    top: -75px;
+    left: 20px;
+    z-index: 999;
+    display: flex;
+    flex-direction: column; /* Apilar ícono y texto en columna */
+    align-items: center; /* Centrar ícono y texto horizontalmente */
+    justify-content: center; /* Centrar verticalmente */
+    background-color: #007bff; /* Color del botón */
+    width: 200px;
+    color: white;
+    border: none;
+    padding: 10px;
+    font-size: 1em;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+}
+
+/*.back_button {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    font-size: 1em;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    z-index: 9999;
+}*/
+
+.back_button:hover {
+    background-color: #0056b3;
 }
 
 h1 {
@@ -172,5 +211,9 @@ footer {
     background-color:#338b00; 
     color:white;
     text-align: center;
-    padding: 10px;
+    padding: 5px;
+}
+
+p{
+    margin: 0;
 }
