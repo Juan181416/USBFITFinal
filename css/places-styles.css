@@ -1,0 +1,126 @@
+#map {
+    flex: 1;
+    height: 500px;
+    width: 100%;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.map-and-list {
+    display: flex;
+    gap: 20px;
+    height: 600px;
+    margin-top: 20px;
+}
+
+.places-sidebar {
+    width: 300px;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    display: flex;
+    flex-direction: column;
+    height: 100%; /* Make it full height */
+}
+
+.places-header {
+    padding: 15px;
+    border-bottom: 1px solid #eee;
+    background: white; /* Ensure header stays on top */
+    border-radius: 8px 8px 0 0;
+}
+
+.places-list {
+    flex: 1;
+    overflow-y: auto; /* Enable vertical scrolling */
+    padding: 10px;
+    /* Add smooth scrolling */
+    scroll-behavior: smooth;
+    /* Hide scrollbar for Chrome/Safari/Opera */
+    &::-webkit-scrollbar {
+        width: 8px;
+    }
+    &::-webkit-scrollbar-track {
+        background: #f1f1f1;
+    }
+    &::-webkit-scrollbar-thumb {
+        background: #888;
+        border-radius: 4px;
+    }
+    &::-webkit-scrollbar-thumb:hover {
+        background: #555;
+    }
+}
+
+/* Keep your existing place-item styles */
+.place-item {
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    background: #f8f9fa;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.filter-buttons {
+    margin-bottom: 20px;
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+}
+
+.filter-btn {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    background-color: var(--primary-color);
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.filter-btn:hover {
+    background-color: var(--secondary-color);
+} 
+
+
+
+.places-list {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.places-list h2 {
+    color: var(--primary-color);
+    margin-bottom: 20px;
+}
+
+.place-item {
+    padding: 15px;
+    border-bottom: 1px solid #eee;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.place-item:last-child {
+    border-bottom: none;
+}
+
+.place-info h3 {
+    margin: 0;
+    color: var(--text-color);
+}
+
+.place-info p {
+    margin: 5px 0;
+    color: #666;
+}
+
+.place-distance {
+    color: var(--primary-color);
+    font-weight: bold;
+}

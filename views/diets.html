@@ -1,88 +1,131 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>USBFIT</title>
-    <link rel="stylesheet" href="../css/style.css">
-    <script src="script.js"> </script>
-    
-    <!-- Bootstrap inclusion -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 
-    <!--  Fonts section!! -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>USBFIT - Planeador de dietas</title>
+
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/diet-styles.css">
+  <script src="script.js"> </script>
+  <script src="../js/diet.js"> </script>
+
+  <!-- Bootstrap inclusion -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+  <!--  Fonts section!! -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap"
+    rel="stylesheet">
 </head>
 
 <header>
-    <div class="title">
-        USBFIT
-      </div>
-      <a href="../index.html"> 
-        <div style="position: sticky;">
-            <button class="back_button" style="background-color: green;">
-                <img src="../assets/run_back_button.png" alt="Icono de regresar" style="width: 15%;">
-                <span>Regresar</span>
-            </button>
-        </div>
-      </a>
+  <div class="title">
+    USBFIT
+  </div>
+  <a href="../index.html">
+    <div style="position: sticky;">
+      <button class="back_button" style="background-color: green;">
+        <img src="../assets/run_back_button.png" alt="Icono de regresar" style="width: 15%;">
+        <span>Regresar</span>
+      </button>
+    </div>
+  </a>
 </header>
 
 <body>
-    <div class="bcimage" style="background-image: url(https://images.squarespace-cdn.com/content/v1/59f0e6beace8641044d76e9c/1675269073941-R0ZICO2NU09XYFJ6CNYY/social+varied+diet.jpg);">
-        <div class="highlight">Cuida tu alimentación</div>
-        <div class="htext">Guarda registro de tus dietas</div>
+  <!-- Banner section-->
+  <div class="bcimage"
+    style="background-image: url(https://images.squarespace-cdn.com/content/v1/59f0e6beace8641044d76e9c/1675269073941-R0ZICO2NU09XYFJ6CNYY/social+varied+diet.jpg);">
+    <div class="highlight">Cuida tu alimentación</div>
+    <div class="htext">Guarda registro de tus dietas</div>
+  </div>
+
+  <!-- Calculadora de Calorías -->
+  <h1 class="card_title">Calculadora de calorías</h1>
+  <div class="calorie-calculator">
+    <form id="calorieForm">
+      <div class="form-group">
+        <label for="gender">Género:</label>
+        <select id="gender" required>
+          <option value="male">Masculino</option>
+          <option value="female">Femenino</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="weight">Peso (kg):</label>
+        <input type="number" id="weight" min="30" max="300" required>
+      </div>
+      <div class="form-group">
+        <label for="height">Altura (cm):</label>
+        <input type="number" id="height" min="100" max="250" required>
+      </div>
+      <div class="form-group">
+        <label for="age">Edad:</label>
+        <input type="number" id="age" min="15" max="100" required>
+      </div>
+      <div class="form-group">
+        <label for="activity">Nivel de Actividad:</label>
+        <select id="activity" required>
+          <option value="1.2">Sedentario (poco o ningún ejercicio)</option>
+          <option value="1.375">Levemente activo (ejercicio ligero 1-3 días/semana)</option>
+          <option value="1.55">Moderadamente activo (ejercicio moderado 3-5 días/semana)</option>
+          <option value="1.725">Muy activo (ejercicio intenso 6-7 días/semana)</option>
+          <option value="1.9">Extra activo (ejercicio muy intenso y trabajo físico)</option>
+        </select>
+      </div>
+      <button type="submit" class="btn-calculate">Calcular Calorías</button>
+    </form>
+    <div id="calorieResult"></div>
+  </div>
+
+  <h1 class="card_title">Planificacion y registro de
+    dieta</h1>
+  <div class="diet-container">
+
+
+    <!-- Diet Categories Section -->
+    <div class="diet-categories">
+      <div class="category-card" onclick="showMealPlans('weightloss')">
+        <img src="https://statics-cuidateplus.marca.com/cms/2023-09/ropa-grande.jpg" alt="Pérdida de Peso">
+        <h3>Pérdida de Peso</h3>
+      </div>
+      <div class="category-card" onclick="showMealPlans('muscle')">
+        <img src="https://www.sport.es/labolsadelcorredor/wp-content/uploads/2021/11/crecimiento-masa-muscular-1.jpg"
+          alt="Ganancia Muscular">
+        <h3>Ganancia Muscular</h3>
+      </div>
+      <div class="category-card" onclick="showMealPlans('vegetarian')">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/e/e9/Soy-whey-protein-diet.jpg" alt="Vegetariano">
+        <h3>Vegetariano</h3>
+      </div>
     </div>
 
-    <!--Formulario-->
-
-    <h1 style="text-align: center; background-color: #338b00; color: white;">Registro de dieta</h1>
-
-<!--<form>
-    <div class="input-group flex-nowrap" >
-        <span class="input-group-text" id="addon-wrapping" style="background-color: rgb(31, 167, 31); color: white;">Primera comida</span>
-        <input type="text" class="form-control" placeholder="Primera comida del día"  aria-describedby="addon-wrapping">
-
-        <span class="input-group-text" id="addon-wrapping" style="background-color: rgb(31, 167, 31); color: white;">Calorías</span>
-        <input type="text" class="form-control" placeholder="Calorías de primera comida"  aria-describedby="addon-wrapping">
+    <!-- Meal Planner Section -->
+    <div class="meal-planner">
+      <div class="meal-calendar">
+        <script>
+          document.addEventListener('DOMContentLoaded', function () {
+            const mealPlanner = new MealPlanner();
+          });
+        </script>
+        <!-- Calendar will be populated by JavaScript -->
       </div>
+    </div>
+  </div>
 
-      
-    <div class="input-group flex-nowrap">
-        <span class="input-group-text" id="addon-wrapping" style="background-color: rgb(31, 167, 31); color: white;">Segunda comida</span>
-        <input type="text" class="form-control" placeholder="Segunda comida del día"  aria-describedby="addon-wrapping">
-
-        <span class="input-group-text" id="addon-wrapping" style="background-color: rgb(31, 167, 31); color: white;">Calorías</span>
-        <input type="text" class="form-control" placeholder="Calorías de segunda comida"  aria-describedby="addon-wrapping">
-      </div>
-
-
-      <div class="input-group flex-nowrap">
-        <span class="input-group-text" id="addon-wrapping" style="background-color: rgb(31, 167, 31); color: white;">Tercera comida</span>
-        <input type="text" class="form-control" placeholder="Tercera comida del día"  aria-describedby="addon-wrapping">
-
-        <span class="input-group-text" id="addon-wrapping" style="background-color: rgb(31, 167, 31); color: white;">Calorías</span>
-        <input type="text" class="form-control" placeholder="Calorías de tercera comida"  aria-describedby="addon-wrapping">
-      </div>
-
-      <button type="submit" class="btn btn-primary" style="background-color: green;">Guardar</button>
-    </form> <br>-->
-
-    <!--Display de dietas-->
-    <h1 style="text-align: center; background-color: #338b00; color: white;">Mis dietas</h1>
-
-      </form>
-
-
-    <footer>
-        <p>Samuel Rendón Rodríguez</p>
-        <p>Juan David Basto Amaya</p>
-        <p>Manuel Alejandro Viteri</p>
-        <p>2024</p>
-    </footer>
+  <footer>
+    <p>Samuel Rendón Rodríguez</p>
+    <p>Juan David Basto Amaya</p>
+    <p>Manuel Alejandro Viteri</p>
+    <p>2024</p>
+  </footer>
 
 </body>
+
 </html>

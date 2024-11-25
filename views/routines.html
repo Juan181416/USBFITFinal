@@ -1,86 +1,145 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>USBFIT</title>
     <link rel="stylesheet" href="../css/style.css">
     <script src="/js/main_script.js"> </script>
-    <script src="/js/routines.js"></script>
+    <link rel="stylesheet" href="../css/routines-styles.css">
 
     <!-- Bootstrap inclusion -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 
     <!--  Fonts section!! -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap"
+        rel="stylesheet">
 </head>
 
 <header>
     <div class="title">
         USBFIT
-      </div>
-      <a href="../index.html"> 
+    </div>
+    <a href="../index.html">
         <div style="position: sticky;">
             <button class="back_button" style="background-color: green;">
                 <img src="../assets/run_back_button.png" alt="Icono de regresar" style="width: 15%;">
                 <span>Regresar</span>
             </button>
         </div>
-      </a>
+    </a>
 </header>
 
 <body>
-    <div class="bcimage" style="background-image: url(https://media.post.rvohealth.io/wp-content/uploads/2020/02/man-exercising-plank-push-up-1200x628-facebook.jpg);">
+    <div class="bcimage"
+        style="background-image: url(https://media.post.rvohealth.io/wp-content/uploads/2020/02/man-exercising-plank-push-up-1200x628-facebook.jpg);">
         <div class="highlight">No te pierdas de vista</div>
         <div class="htext">Guarda registro de tus rutinas de ejercicio</div>
     </div>
 
-    <!--Formulario-->
-
-    <h1 style="text-align: center; background-color: #338b00; color: white;">Registro de ejercicios</h1>
-
-    <form>
-    <div class="input-group mb-3">
-        
-        <span class="input-group-text" id="basic-addon1" style="background-color: rgb(31, 167, 31); color: white;" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="">
-            <img src="../assets/run_back_button.png" alt="Icono de regresar" style="width: 8%;">
-            Ejercicio 
-        </span>
-        <label for="exampleDataList" class="form-label"></label>
-<input class="form-control" list="datalistOptions" id="exampleDataList" placeholder="Ejercicio...">
-<datalist id="datalistOptions">
-  <option value="Caminadora">
-  <option value="Press de banca">
-  <option value="Pulldown lateral">
-  <option value="Hack squat">
-  <option value="Elíptica">
-</datalist>
-      </div>
-
-    <div class="input-group mb-3">
-        <div class="input-group-text" style="background-color: rgb(31, 167, 31); color: white;" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="">
-            Tiempo   
-            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-            <label class="form-check-label" for="flexRadioDefault1">
-                Series   
-                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2">
-                <label class="form-check-label" for="flexRadioDefault2">   
+    <div class="routines-container">
+        <!-- Dashboard Summary -->
+        <div class="routine-dashboard">
+            <div class="stat-card">
+                <i class="fas fa-dumbbell"></i>
+                <h3>Rutinas Activas</h3>
+                <p id="activeRoutines">0</p>
+            </div>
+            <div class="stat-card">
+                <i class="fas fa-fire"></i>
+                <h3>Entrenamientos Completados</h3>
+                <p id="completedWorkouts">0</p>
+            </div>
         </div>
-        
-        <input type="text" class="form-control" aria-label="Text input with radio button">
+    
+        <!-- Weekly Schedule -->
+        <div class="weekly-schedule">
+            <h2>Horario Semanal</h2>
+            <div class="schedule-grid" id="scheduleGrid">
+                <!-- Days will be populated by JS -->
+            </div>
+        </div>
+    
+        <!-- Routine Filters -->
+        <div class="routine-filters">
+            <button class="filter-btn active" data-type="all">Todas</button>
+            <button class="filter-btn" data-type="strength">Fuerza</button>
+            <button class="filter-btn" data-type="cardio">Cardio</button>
+            <button class="filter-btn" data-type="flexibility">Flexibilidad</button>
+            <button class="filter-btn" data-type="mixed">Mixta</button>
+        </div>
+    
+        <!-- Create Button -->
+        <div class="routine-creator">
+            <button class="btn-create" id="createRoutineBtn">
+                <i class="fas fa-plus"></i> Crear Nueva Rutina
+            </button>
+        </div>
+    
+        <!-- Routines Grid -->
+        <div class="routines-grid" id="routinesGrid"></div>
+    
+        <!-- Create/Edit Routine Modal -->
+        <div id="routineModal" class="modal">
+            <div class="modal-content">
+                <span class="close-modal">&times;</span>
+                <h2>Crear Rutina</h2>
+                <form id="routineForm">
+                    <div class="form-group">
+                        <label for="routineName">Nombre de la Rutina</label>
+                        <input type="text" id="routineName" required>
+                    </div>
+    
+                    <div class="form-group">
+                        <label for="routineType">Tipo de Rutina</label>
+                        <select id="routineType" required>
+                            <option value="strength">Fuerza</option>
+                            <option value="cardio">Cardio</option>
+                            <option value="flexibility">Flexibilidad</option>
+                            <option value="mixed">Mixta</option>
+                        </select>
+                    </div>
+    
+                    
+                    <div class="form-group">
+                        <label>Días de Entrenamiento</label>
+                        <div class="weekday-selector">
+                            <label><input type="checkbox" value="1"> Lun</label>
+                            <label><input type="checkbox" value="2"> Mar</label>
+                            <label><input type="checkbox" value="3"> Mié</label>
+                            <label><input type="checkbox" value="4"> Jue</label>
+                            <label><input type="checkbox" value="5"> Vie</label>
+                            <label><input type="checkbox" value="6"> Sáb</label>
+                            <label><input type="checkbox" value="0"> Dom</label>
+                        </div>
+                    </div>
+                    
+                    <div class="exercises-container">
+                        <h3>Ejercicios</h3>
+                        <div id="exercisesList"></div>
+                        <button type="button" class="btn-add-exercise" id="addExerciseBtn">
+                            <i class="fas fa-plus"></i> Añadir Ejercicio
+                        </button>
+                    </div>
+    
+                    <div class="form-group">
+                        <label for="routineNotes">Notas (opcional)</label>
+                        <textarea id="routineNotes" rows="3"></textarea>
+                    </div>
+    
+                    <button type="submit" class="btn-save">Guardar Rutina</button>
+                </form>
+            </div>
+        </div>
+    </div>
 
-        
-      </div>
-      <button type="submit" class="btn btn-primary" style="background-color: green;">Guardar</button>
-      </form> <br>
-
-      <!--Display de rutina-->
-      <h1 style="text-align: center; background-color: #338b00; color: white;">Mi rutina</h1>
-
-
+    <script src="../js/routines.js"></script>
 
     <footer>
         <p>Samuel Rendón Rodríguez</p>
@@ -90,4 +149,5 @@
     </footer>
 
 </body>
+
 </html>

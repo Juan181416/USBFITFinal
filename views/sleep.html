@@ -1,66 +1,150 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>USBFIT</title>
+    <title>USBFIT - Lugares cercanos</title>
     <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/sleep-styles.css">
     <script src="script.js"> </script>
-    
+    <script src="../js/sleep.js"> </script> 
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
     <!-- Bootstrap inclusion -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 
     <!--  Fonts section!! -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap"
+        rel="stylesheet">
 </head>
 
-<header>
-    <div class="title">
-        USBFIT
-      </div>
-      <a href="../index.html"> 
-        <div style="position: sticky;">
-            <button class="back_button" style="background-color: green;">
-                <img src="../assets/run_back_button.png" alt="Icono de regresar" style="width: 15%;">
-                <span>Regresar</span>
-            </button>
-        </div>
-      </a>
-</header>
-
 <body>
-    <div class="bcimage" style="background-image: url(https://www.mercyone.org/assets/images/health-and-wellness/comms_web_sleep-hygiene_1000x562.jpg);">
+    <!-- Header section-->
+    <header>
+        <div class="title">
+            USBFIT
+        </div>
+        <a href="../index.html">
+            <div style="position: sticky;">
+                <button class="back_button" style="background-color: green;">
+                    <img src="../assets/run_back_button.png" alt="Icono de regresar" style="width: 15%;">
+                    <span>Regresar</span>
+                </button>
+            </div>
+        </a>
+    </header>
+
+
+    <div class="bcimage"
+        style="background-image: url(https://www.mercyone.org/assets/images/health-and-wellness/comms_web_sleep-hygiene_1000x562.jpg);">
         <div class="highlight">Cuida tu sueño</div>
         <div class="htext">Guarda registro de tus horas de sueño</div>
     </div>
 
     <!--Formulario-->
+    <div class="sleep-container">
+        <h1 class="card_title">Control de Sueño</h1>
 
-    <h1 style="text-align: center; background-color: #338b00; color: white;">Mis horas de sueño</h1>
+        <!-- Sleep Stats Summary -->
+        <div class="sleep-stats">
+            <div class="stat-card">
+                <i class="fas fa-moon"></i>
+                <h3>Promedio de Sueño</h3>
+                <p id="avgSleep">0 horas</p>
+            </div>
+            <div class="stat-card">
+                <i class="fas fa-bed"></i>
+                <h3>Hora Promedio de Dormir</h3>
+                <p id="avgBedtime">00:00</p>
+            </div>
+            <div class="stat-card">
+                <i class="fas fa-sun"></i>
+                <h3>Hora Promedio de Despertar</h3>
+                <p id="avgWakeup">00:00</p>
+            </div>
+        </div>
 
-    <form>
+        <!-- Add Sleep Entry -->
+        <div class="sleep-form">
+            <h2>Registrar Sueño</h2>
+            <form id="sleepForm">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="sleepDate">Fecha:</label>
+                        <input type="date" id="sleepDate" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="bedTime">Hora de dormir:</label>
+                        <input type="time" id="bedTime" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="wakeTime">Hora de despertar:</label>
+                        <input type="time" id="wakeTime" required>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="sleepQuality">Calidad del sueño:</label>
+                        <select id="sleepQuality" required>
+                            <option value="5">Excelente</option>
+                            <option value="4">Buena</option>
+                            <option value="3">Regular</option>
+                            <option value="2">Mala</option>
+                            <option value="1">Muy mala</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="notes">Notas:</label>
+                        <input type="text" id="notes" placeholder="Opcional">
+                    </div>
+                </div>
+                <button type="submit" class="btn-submit">Guardar Registro</button>
+            </form>
+        </div>
 
-    <div class="input-group flex-nowrap" >
-        <span class="input-group-text" id="addon-wrapping" style="background-color: rgb(31, 167, 31); color: white;">Horas de sueño</span>
-        <input type="text" class="form-control" placeholder="Cuántas horas dormiste?"  aria-describedby="addon-wrapping">
-      </div>
+        <!-- Sleep History -->
+        <div class="sleep-history">
+            <h2>Historial de Sueño</h2>
+            <div class="history-container">
+                <table id="sleepTable">
+                    <thead>
+                        <tr>
+                            <th>Fecha</th>
+                            <th>Hora de dormir</th>
+                            <th>Hora de despertar</th>
+                            <th>Duración</th>
+                            <th>Calidad</th>
+                            <th>Notas</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody id="sleepHistory"></tbody>
+                </table>
+            </div>
+        </div>
 
-      <div class="input-group flex-nowrap">
-        <label for="inputDatepublic" class="input-group-text" id="addon-wrapping" style="background-color: rgb(31, 167, 31); color: white;">Fecha</label>
-        <input type="date" class="form-control" id="inputDatepublic">
+        <!-- Graph section -->
+        <div class="sleep-graphs">
+            <div class="graph-card">
+                <h2>Duración del Sueño (Últimos 7 días)</h2>
+                <canvas id="sleepDurationChart"></canvas>
+            </div>
+            <div class="graph-card">
+                <h2>Calidad del Sueño (Últimos 7 días)</h2>
+                <canvas id="sleepQualityChart"></canvas>
+            </div>
+            <div class="graph-card wide">
+                <h2>Patrones de Sueño (Últimos 7 días)</h2>
+                <canvas id="sleepPatternChart"></canvas>
+            </div>
+        </div>
     </div>
-
-    <button type="submit" class="btn btn-primary" style="background-color: green;">Guardar</button>
-    </form> <br>
-
-    <!--Display de dietas-->
-    <h1 style="text-align: center; background-color: #338b00; color: white;">Historial de horas de sueño</h1>
-
-
-
 
     <footer>
         <p>Samuel Rendón Rodríguez</p>
@@ -70,4 +154,5 @@
     </footer>
 
 </body>
+
 </html>
